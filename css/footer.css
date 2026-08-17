@@ -1,0 +1,521 @@
+/* ==========================================================================
+   GAGI SACCO — FOOTER
+   ========================================================================== */
+
+.site-footer {
+  background: var(--color-dark-2);
+  color: #C7CCD1;
+  padding-top: 64px;
+}
+
+
+/* ==========================================================================
+   FOOTER GRID
+   ========================================================================== */
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.footer-col h4 {
+  color: var(--color-white);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-col ul li a,
+.footer-col ul li {
+  font-size: 0.92rem;
+  color: #B7BEC4;
+  transition: color var(--transition);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.footer-col ul li a:hover {
+  color: var(--color-orange);
+}
+
+.footer-contact ul li i {
+  color: var(--color-orange);
+  margin-top: 3px;
+  width: 14px;
+}
+
+
+/* ==========================================================================
+   FOOTER ABOUT / LOGO
+   ========================================================================== */
+
+.footer-about p {
+  font-size: 0.92rem;
+  margin: 18px 0 20px;
+  color: #B7BEC4;
+}
+
+.logo-footer {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.footer-logo-icon {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  display: block;
+}
+
+.logo-text-light {
+  color: var(--color-white);
+}
+
+.logo-text-light span {
+  color: var(--color-orange);
+}
+
+
+/* ==========================================================================
+   SOCIAL LINKS
+   ========================================================================== */
+
+.footer-about .social-links {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-about .social-links li {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-about .social-links li a {
+  width: 38px !important;
+  height: 38px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  border-radius: 50%;
+  border: 1px solid #3A444C;
+
+  color: var(--color-white);
+
+  line-height: 1 !important;
+  gap: 0 !important;
+
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    color var(--transition),
+    transform var(--transition);
+}
+
+.footer-about .social-links li a i {
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  line-height: 1 !important;
+}
+
+/* Hover */
+.footer-about .social-links li a:hover {
+  background: var(--color-orange);
+  border-color: var(--color-orange);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+
+/* ==========================================================================
+   DEVELOPER CTA
+   ========================================================================== */
+
+.developer-cta {
+  border-top: 1px solid #2B333A;
+  border-bottom: 1px solid #2B333A;
+  padding: 22px 0;
+}
+
+.developer-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.developer-cta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.developer-cta-label {
+  color: var(--color-white);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.developer-cta-subtext {
+  color: #8F979E;
+  font-size: 0.82rem;
+}
+
+.developer-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid var(--color-orange);
+  background: transparent;
+  color: var(--color-orange);
+  padding: 10px 17px;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition:
+    background var(--transition),
+    color var(--transition),
+    transform var(--transition);
+}
+
+.developer-cta-button:hover {
+  background: var(--color-orange);
+  color: var(--color-white);
+  transform: translateY(-1px);
+}
+
+.developer-cta-button i {
+  font-size: 0.75rem;
+}
+
+
+/* ==========================================================================
+   DEVELOPER CONTACT MODAL
+   ========================================================================== */
+
+.developer-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+}
+
+.developer-modal[hidden] {
+  display: none;
+}
+
+.developer-modal-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(10, 14, 17, 0.72);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.developer-modal-card {
+  position: relative;
+  z-index: 1;
+
+  width: min(100%, 460px);
+
+  background: var(--color-white);
+  border-radius: 12px;
+
+  padding: 34px;
+
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+
+  animation: developerModalIn 0.22s ease-out;
+}
+
+@keyframes developerModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* ==========================================================================
+   MODAL CLOSE BUTTON
+   ========================================================================== */
+
+.developer-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  width: 36px;
+  height: 36px;
+
+  border: 1px solid #E1E5E8;
+  border-radius: 50%;
+
+  background: #F7F8F9;
+  color: var(--color-dark-2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition);
+}
+
+.developer-modal-close:hover {
+  background: var(--color-dark-2);
+  color: var(--color-white);
+  border-color: var(--color-dark-2);
+}
+
+
+/* ==========================================================================
+   MODAL ICON
+   ========================================================================== */
+
+.developer-modal-icon {
+  width: 52px;
+  height: 52px;
+
+  border-radius: 10px;
+
+  background: rgba(245, 124, 0, 0.1);
+  color: var(--color-orange);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.25rem;
+
+  margin-bottom: 18px;
+}
+
+.developer-modal-card .eyebrow {
+  display: inline-block;
+  margin-bottom: 7px;
+}
+
+.developer-modal-card h2 {
+  margin-bottom: 10px;
+  color: var(--color-dark-2);
+}
+
+.developer-modal-card > p {
+  color: #6E777E;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+
+/* ==========================================================================
+   CONTACT OPTIONS
+   ========================================================================== */
+
+.developer-contact-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.developer-contact-option {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  padding: 13px;
+
+  border: 1px solid #E2E6E9;
+  border-radius: 8px;
+
+  color: var(--color-dark-2);
+  background: #FFFFFF;
+
+  transition:
+    border-color var(--transition),
+    background var(--transition),
+    transform var(--transition);
+}
+
+.developer-contact-option:hover {
+  border-color: var(--color-orange);
+  background: #FFF9F4;
+  transform: translateX(2px);
+}
+
+.developer-option-icon {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+
+  border-radius: 7px;
+
+  background: #F1F3F4;
+  color: var(--color-dark-2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.developer-contact-option:hover .developer-option-icon {
+  background: var(--color-orange);
+  color: var(--color-white);
+}
+
+.developer-option-content {
+  min-width: 0;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.developer-option-content strong {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.developer-option-content small {
+  color: #7B848B;
+  font-size: 0.76rem;
+}
+
+.developer-option-arrow {
+  color: #A3AAB0;
+  font-size: 0.7rem;
+}
+
+.developer-contact-option:hover .developer-option-arrow {
+  color: var(--color-orange);
+}
+
+
+/* ==========================================================================
+   FOOTER BOTTOM
+   ========================================================================== */
+
+.footer-bottom {
+  border-top: 1px solid #2B333A;
+  padding: 20px 0;
+}
+
+.footer-bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  font-size: 0.85rem;
+  color: #8B9299;
+}
+
+
+/* ==========================================================================
+   MODAL BODY LOCK
+   ========================================================================== */
+
+body.modal-open {
+  overflow: hidden;
+}
+
+
+/* ==========================================================================
+   MOBILE FOOTER
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+  .site-footer {
+    padding-top: 50px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .developer-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .developer-cta-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+}
+
+
+/* ==========================================================================
+   SMALL MOBILE
+   ========================================================================== */
+
+@media (max-width: 480px) {
+
+  .developer-modal {
+    padding: 14px;
+  }
+
+  .developer-modal-card {
+    padding: 28px 20px;
+  }
+
+  .footer-logo-icon {
+    width: 40px;
+    height: 40px;
+  }
+}

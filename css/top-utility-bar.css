@@ -1,0 +1,190 @@
+/* ==========================================================================
+   TOP UTILITY BAR
+   ========================================================================== */
+
+.top-bar {
+  background: var(--color-dark-2);
+  color: #B7BEC4;
+  font-size: 0.82rem;
+}
+
+.top-bar-inner {
+  display: flex;
+  align-items: center;
+  padding: 10px 24px;
+  gap: 0;
+}
+
+
+/* ==========================================================================
+   LOCATION — FIXED
+   ========================================================================== */
+
+.top-bar-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.top-bar-location i {
+  color: var(--color-orange);
+  flex-shrink: 0;
+}
+
+
+/* ==========================================================================
+   RIGHT CONTENT — DESKTOP
+   ========================================================================== */
+
+.top-bar-marquee {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin-left: 24px;
+  overflow: hidden;
+}
+
+
+/*
+ * IMPORTANT:
+ * No animation or marquee is applied here.
+ * Everything remains static on desktop.
+ */
+
+.top-bar-marquee-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 22px;
+}
+
+
+/* ==========================================================================
+   PHONE
+   ========================================================================== */
+
+.top-bar-phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.top-bar-phone i {
+  color: var(--color-orange);
+}
+
+
+/* ==========================================================================
+   EMAIL
+   ========================================================================== */
+
+.top-bar-email {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.top-bar-email i {
+  color: var(--color-orange);
+}
+
+
+/* ==========================================================================
+   BUSINESS HOURS
+   ========================================================================== */
+
+.top-bar-hours {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  /* Push hours toward the right */
+  margin-left: auto;
+}
+
+.top-bar-hours i {
+  color: var(--color-orange);
+  margin-right: 6px;
+}
+
+
+/* ==========================================================================
+   SOCIAL ICONS
+   ========================================================================== */
+
+.top-bar-social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.top-bar-social li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.top-bar-social a {
+  width: 24px;
+  height: 24px;
+
+  padding: 0;
+  margin: 0;
+
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--color-white);
+  font-size: 0.7rem;
+  line-height: 1;
+
+  transition:
+    background var(--transition),
+    color var(--transition);
+}
+
+
+/* Precisely center Font Awesome icons */
+
+.top-bar-social a i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 1em;
+  height: 1em;
+
+  margin: 0;
+  padding: 0;
+
+  line-height: 1;
+}
+
+
+/* Hover */
+
+.top-bar-social a:hover {
+  background: var(--color-orange);
+  color: #FFFFFF;
+}
+
+.top-bar-social a:hover i {
+  color: #FFFFFF !important;
+}

@@ -1,0 +1,413 @@
+/* =========================================================
+   GAGI SACCO — contact.css
+   Page-specific styles for contact.html:
+   dark hero, contact methods + map split, "easy to find"
+   note strip, message form + help sidebar. Shared header/
+   footer/buttons/CTA banner and the top utility bar live in
+   style.css / products.css.
+========================================================= */
+
+/* ---------- Top utility bar ---------- */
+.top-bar {
+  background: var(--color-dark-2);
+  color: #B7BEC4;
+  font-size: 0.82rem;
+}
+.top-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 24px;
+  gap: 20px;
+}
+.top-bar-info {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+.top-bar-info li { display: flex; align-items: center; gap: 8px; }
+.top-bar-info i { color: var(--color-orange); }
+
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.top-bar-right i { color: var(--color-orange); margin-right: 6px; }
+
+.top-bar-social { display: flex; gap: 10px; }
+.top-bar-social a {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  font-size: 0.7rem;
+  transition: background var(--transition);
+}
+.top-bar-social a:hover { background: var(--color-orange); }
+
+/* ---------- Contact hero (dark, image right) ---------- */
+.contact-hero {
+  background: var(--color-dark);
+  color: var(--color-white);
+  overflow: hidden;
+}
+.contact-hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+  gap: 40px;
+}
+.contact-hero-content {
+  padding: 60px 40px 60px 0;
+}
+.contact-hero-content h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin: 8px 0 18px;
+}
+.text-accent { color: var(--color-orange); }
+.contact-hero-content p {
+  color: #D6DADD;
+  max-width: 420px;
+}
+.contact-hero-media { height: 300px; position: relative; }
+.contact-hero-media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--color-dark) 0%, rgba(31,42,51,0) 35%);
+  z-index: 1;
+}
+.contact-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- We're Here to Help + Map ---------- */
+.help-map-section {
+  background: var(--color-grey-light);
+  padding: 80px 0;
+}
+.help-map-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 50px;
+  align-items: start;
+}
+.help-content h2 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.help-content > p {
+  color: var(--color-grey);
+  margin-bottom: 26px;
+  font-size: 0.92rem;
+}
+
+.contact-methods { display: flex; flex-direction: column; }
+.contact-methods li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.contact-methods li:last-child { border-bottom: none; }
+.contact-method-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-orange);
+  color: var(--color-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.contact-methods strong {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+.contact-methods span {
+  font-size: 0.85rem;
+  color: var(--color-grey);
+  line-height: 1.5;
+}
+
+/* Map + note card */
+.map-frame {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  height: 320px;
+}
+.map-frame iframe { display: block; }
+
+.map-note {
+  background: #EFE7DA;
+  border-radius: var(--radius-md);
+  margin-top: 20px;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.map-note-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-orange);
+  color: var(--color-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.map-note-text { flex: 1; }
+.map-note-text strong { display: block; font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+.map-note-text p { font-size: 0.85rem; color: var(--color-grey); }
+.map-note .btn-sm { flex-shrink: 0; padding: 12px 20px; font-size: 0.82rem; }
+
+/* Small button variant (also defined in products.css — duplicated here
+   since this page doesn't load that stylesheet) */
+.btn-sm {
+  padding: 9px 16px;
+  font-size: 0.78rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   FORM SECTION
+   ========================================================================== */
+
+.form-section {
+  background: var(--color-bg);
+  padding: 80px 0;
+}
+
+.form-inner {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+
+/* ==========================================================================
+   FORM CARD
+   ========================================================================== */
+
+.form-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-card);
+}
+
+.form-card h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.form-card > p {
+  color: var(--color-grey);
+  font-size: 0.9rem;
+  margin-bottom: 26px;
+}
+
+
+/* ==========================================================================
+   FORM ROW
+   ========================================================================== */
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+
+/* ==========================================================================
+   FORM FIELDS
+   ========================================================================== */
+
+.form-field {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--color-dark);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  color: var(--color-dark);
+  transition: border-color var(--transition);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--color-orange);
+}
+
+.form-field select {
+  cursor: pointer;
+}
+
+
+/* ==========================================================================
+   VALIDATION ERRORS
+   ========================================================================== */
+
+.form-error {
+  font-size: 0.78rem;
+  color: #C62828;
+  margin-top: 6px;
+  min-height: 1em;
+}
+
+.form-field.invalid input,
+.form-field.invalid select,
+.form-field.invalid textarea {
+  border-color: #C62828;
+}
+
+
+/* ==========================================================================
+   SUBMIT BUTTON
+   ========================================================================== */
+
+.form-card .btn {
+  margin-top: 6px;
+}
+
+
+/* ==========================================================================
+   SUCCESS MESSAGE
+   ========================================================================== */
+
+/*
+   The [hidden] attribute MUST hide the message.
+   This overrides display:flex when the message is hidden.
+*/
+
+.form-success[hidden] {
+  display: none !important;
+}
+
+.form-success {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: rgba(46, 125, 50, 0.1);
+  color: #2E7D32;
+
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin-top: 18px;
+
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.form-success i {
+  flex-shrink: 0;
+}
+
+
+/* ==========================================================================
+   PRIVACY MESSAGE
+   ========================================================================== */
+
+.form-privacy {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 0.78rem;
+  color: var(--color-grey);
+  margin-top: 16px;
+}
+
+.form-privacy i {
+  flex-shrink: 0;
+}
+
+
+/* ---------- Help sidebar (dark) ---------- */
+.help-sidebar {
+  background: var(--color-dark);
+  color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 34px 30px;
+}
+.help-sidebar h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 20px; }
+
+.help-topics { display: flex; flex-direction: column; }
+.help-topics li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid #2B333A;
+}
+.help-topics li:last-child { border-bottom: none; padding-bottom: 0; }
+.help-topics li:first-child { padding-top: 0; }
+.help-topic-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: rgba(245, 124, 0, 0.15);
+  color: var(--color-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.help-topics strong { display: block; font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
+.help-topics p { font-size: 0.8rem; color: #B7BEC4; }
+
+/* ---------- CTA action block (button + note pair, reused across pages) ---------- */
+.cta-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.cta-action span {
+  font-size: 0.75rem;
+  color: var(--color-grey);
+}

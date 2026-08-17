@@ -1,0 +1,261 @@
+/* =========================================================
+   GAGI SACCO — about.css
+   Page-specific styles for about.html:
+   dark hero, who-we-are + stats, values band, team grid,
+   facilities split. Shared header/footer/buttons/CTA banner
+   live in style.css.
+========================================================= */
+
+/* ---------- About hero (dark, image right) ---------- */
+.about-hero {
+  background: var(--color-dark);
+  color: var(--color-white);
+  overflow: hidden;
+}
+.about-hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  align-items: center;
+  gap: 0;
+}
+.about-hero-content {
+  padding: 60px 40px 60px 0;
+  position: relative;
+  z-index: 2;
+}
+.about-hero-content h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+.about-hero-content .text-accent { color: var(--color-orange); }
+.about-hero-content p {
+  color: #D6DADD;
+  max-width: 440px;
+}
+.about-hero-media {
+  height: 320px;
+  position: relative;
+}
+.about-hero-media::before {
+  /* subtle gradient so the dark text panel blends into the photo */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--color-dark) 0%, rgba(31,42,51,0) 35%);
+  z-index: 1;
+}
+.about-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Who we are ---------- */
+.who-section {
+  background: var(--color-grey-light);
+  padding: 80px 0 0;
+}
+.who-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  padding-bottom: 60px;
+}
+.who-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.who-content p {
+  color: var(--color-grey);
+  margin-bottom: 26px;
+}
+.who-media img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+/* Stats row beneath who-we-are */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--color-border);
+  padding: 40px 0;
+}
+.stats-row li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  border-left: 1px solid var(--color-border);
+}
+.stats-row li:first-child { border-left: none; }
+.stat-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(245, 124, 0, 0.12);
+  color: var(--color-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+.stats-row strong {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+.stats-row span {
+  font-size: 0.85rem;
+  color: var(--color-grey);
+}
+
+/* ---------- Our values band ---------- */
+.values-section {
+  background: #EFE7DA;
+  padding: 60px 0;
+}
+.values-eyebrow {
+  display: block;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.values-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.values-row li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 0 24px;
+  border-left: 1px solid #D9CFBD;
+}
+.values-row li:first-child { border-left: none; padding-left: 0; }
+.value-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--color-white);
+  color: var(--color-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-card);
+}
+.values-row strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.values-row p {
+  font-size: 0.85rem;
+  color: var(--color-grey);
+}
+
+/* ---------- Our team ---------- */
+.team-section {
+  padding: 90px 0;
+  background: var(--color-bg);
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.team-card {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition);
+}
+.team-card:hover { transform: translateY(-6px); }
+.team-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+.team-card-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(18,26,32,0) 0%, rgba(18,26,32,0.9) 70%);
+  color: var(--color-white);
+  padding: 30px 16px 16px;
+}
+.team-card-caption h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  border-bottom: 2px solid var(--color-orange);
+  display: inline-block;
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+}
+.team-card-caption span {
+  display: block;
+  font-size: 0.8rem;
+  color: #D6DADD;
+}
+
+/* ---------- Our facilities ---------- */
+.facilities-section {
+  background: var(--color-grey-light);
+  padding: 90px 0;
+}
+.facilities-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.facilities-media img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+.facilities-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.facilities-content p {
+  color: var(--color-grey);
+  margin-bottom: 30px;
+}
+.facilities-features {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 20px;
+}
+.facilities-features li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.facility-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-orange);
+  color: var(--color-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,833 @@
+/* =========================================================
+   GAGI SACCO — responsive.css
+   Breakpoints: tablet (<=1024px), mobile (<=640px).
+   Loaded last on every page so its rules take priority.
+   Organized by page: shared/header rules first, then
+   home.html rules, then about.html rules, etc.
+========================================================= */
+
+/* =====================================================
+   SHARED (header, footer, buttons) — applies to all pages
+===================================================== */
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; row-gap: 40px; }
+  .cta-inner { flex-direction: column; align-items: flex-start; }
+}
+
+/* ---------- Mobile nav (hamburger) ---------- */
+@media (max-width: 768px) {
+  .nav-toggle { display: flex; }
+
+  .main-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(300px, 80vw);
+    background: var(--color-white);
+    box-shadow: -6px 0 24px rgba(0,0,0,0.12);
+    transform: translateX(100%);
+    transition: transform var(--transition);
+    padding: 90px 30px 30px;
+    z-index: 99;
+  }
+  .main-nav.open { transform: translateX(0); }
+  .main-nav ul { flex-direction: column; align-items: flex-start; gap: 22px; }
+  .dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    display: none;
+    margin-top: 10px;
+    padding-left: 10px;
+  }
+  .has-dropdown.open .dropdown { display: block; }
+
+  .header-cta { display: none; }
+
+  /* ==========================================================================
+   MOBILE PRODUCTS DROPDOWN — POSITION FIX
+   ========================================================================== */
+
+  .site-header .has-dropdown {
+    position: static;
+  }
+
+  .site-header .has-dropdown > .dropdown {
+    position: static;
+
+    left: auto;
+    right: auto;
+    top: auto;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 4px 0 8px;
+
+    transform: none !important;
+
+    box-sizing: border-box;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
+  .section-heading h2 { font-size: 1.6rem; }
+  .cta-text { flex-direction: column; }
+  .footer-grid { grid-template-columns: 1fr; text-align: left; }
+  .footer-bottom-inner { flex-direction: column; gap: 6px; text-align: center; }
+}
+
+/* =====================================================
+   HOME PAGE (index.html)
+===================================================== */
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero-media img { height: 340px; }
+  .hero-features { flex-wrap: wrap; row-gap: 18px; }
+
+  .products-grid { grid-template-columns: repeat(4, 1fr); }
+
+  .why-inner { grid-template-columns: 1fr; }
+  .why-media { margin-top: 20px; }
+  .why-badge { position: static; margin-top: 20px; max-width: none; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
+  .hero-content h1 { font-size: 2.1rem; }
+  .hero-buttons { flex-direction: column; }
+  .hero-buttons .btn { width: 100%; justify-content: center; }
+  .hero-features { flex-direction: column; gap: 16px; }
+  .hero-media img { height: 220px; }
+
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .why-content h2 { font-size: 1.7rem; }
+  .why-features { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* =====================================================
+   ABOUT PAGE (about.html)
+===================================================== */
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1024px) {
+  .about-hero-inner { grid-template-columns: 1fr; }
+  .about-hero-content { padding: 50px 24px; }
+  .about-hero-media::before { display: none; }
+  .about-hero-media { height: 260px; }
+
+  .who-inner { grid-template-columns: 1fr; gap: 30px; }
+  .who-media img { height: 260px; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); row-gap: 30px; }
+  .stats-row li:nth-child(3) { border-left: none; }
+
+  .values-row { grid-template-columns: repeat(2, 1fr); row-gap: 30px; }
+  .values-row li:nth-child(3) { border-left: none; }
+
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .facilities-inner { grid-template-columns: 1fr; gap: 30px; }
+  .facilities-media img { height: 260px; }
+  .facilities-features { grid-template-columns: repeat(2, auto); row-gap: 20px; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
+  .about-hero-content h1 { font-size: 1.9rem; }
+
+  .who-content h2 { font-size: 1.6rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+
+  .values-row { grid-template-columns: 1fr; }
+  .values-row li { border-left: none; padding-left: 0; border-top: 1px solid #D9CFBD; padding-top: 20px; }
+  .values-row li:first-child { border-top: none; padding-top: 0; }
+
+  .team-grid { grid-template-columns: 1fr; }
+  .team-card img { height: 220px; }
+
+  .facilities-content h2 { font-size: 1.6rem; }
+  .facilities-features { grid-template-columns: repeat(2, auto); }
+}
+
+/* =====================================================
+   PRODUCTS PAGE (products.html)
+===================================================== */
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1024px) {
+  .top-bar-info li:nth-child(3) { display: none; }
+
+  .products-hero-media { width: 45%; }
+  .products-hero-features { flex-wrap: wrap; row-gap: 18px; }
+
+  .listing-inner { grid-template-columns: 1fr; }
+  .products-sidebar { position: static; flex-direction: row; flex-wrap: wrap; }
+  .help-card, .category-card, .delivery-card { flex: 1 1 260px; }
+
+  .products-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .products-cta-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .products-cta-action { align-items: flex-start; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
+  .top-bar-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .top-bar-info { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .top-bar-right { width: 100%; justify-content: space-between; }
+
+  .products-hero-media { position: static; width: 100%; height: 200px; margin-top: 24px; }
+  .products-hero-media::before { display: none; }
+  .products-hero-inner { padding-bottom: 30px; }
+  .products-hero-content h1 { font-size: 2rem; }
+  .products-hero-features { flex-direction: column; gap: 16px; }
+
+  .products-sidebar { flex-direction: column; }
+
+  .listing-header { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+  .products-cta-features { flex-direction: column; gap: 18px; align-items: flex-start; }
+}
+
+/* =====================================================
+   WHY US PAGE (why-us.html)
+===================================================== */
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1024px) {
+  .whyus-hero-media { width: 45%; }
+
+  .advantage-row { grid-template-columns: repeat(3, 1fr); row-gap: 40px; }
+  .advantage-row li:nth-child(4) { border-left: none; }
+
+  .whyus-stats-row { flex-wrap: wrap; row-gap: 24px; justify-content: flex-start; }
+  .whyus-stats-row li { flex: 1 1 45%; border-left: none; padding-left: 0; }
+
+  .quality-inner { grid-template-columns: 1fr; gap: 30px; }
+  .quality-media img { height: 260px; }
+
+  .process-row { grid-template-columns: repeat(3, 1fr); row-gap: 50px; }
+  .process-row::before { display: none; }
+
+  .cta-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .cta-action { align-items: flex-start; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
+  .whyus-hero-media { position: static; width: 100%; height: 200px; margin-top: 24px; }
+  .whyus-hero-media::before { display: none; }
+  .whyus-hero-inner { padding-bottom: 30px; }
+  .whyus-hero-content h1 { font-size: 2rem; }
+
+  .advantage-row { grid-template-columns: repeat(2, 1fr); }
+  .advantage-row li { border-left: none; padding: 0 8px; }
+
+  .whyus-stats-row li { flex: 1 1 100%; }
+
+  .quality-content h2 { font-size: 1.6rem; }
+
+  .process-row { grid-template-columns: 1fr; row-gap: 34px; }
+
+  .testimonial-carousel { gap: 12px; }
+  .testimonial-slide p { font-size: 1rem; }
+}
+
+/* =====================================================
+   CONTACT PAGE (contact.html)
+===================================================== */
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1024px) {
+  .contact-hero-inner { grid-template-columns: 1fr; }
+  .contact-hero-content { padding: 50px 24px; }
+  .contact-hero-media::before { display: none; }
+  .contact-hero-media { height: 240px; }
+
+  .help-map-inner { grid-template-columns: 1fr; gap: 40px; }
+
+  .form-inner { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
+  .contact-hero-content h1 { font-size: 1.9rem; }
+
+  .help-content h2 { font-size: 1.5rem; }
+  .map-note { flex-direction: column; align-items: flex-start; text-align: left; }
+  .map-note .btn-sm { width: 100%; justify-content: center; }
+
+  .form-card { padding: 26px 20px; }
+  .form-card .btn { width: 100%; justify-content: center; }
+}
+
+/* =====================================================
+   QUOTE PAGE (quote.html)
+===================================================== */
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1024px) {
+  .quote-hero-media { width: 42%; }
+  .quote-hero-features { flex-wrap: wrap; row-gap: 18px; }
+
+  .quote-inner { grid-template-columns: 1fr; }
+  .quote-sidebar { position: static; flex-direction: row; flex-wrap: wrap; }
+  .why-quote-card, .popular-products-card, .need-help-card { flex: 1 1 280px; }
+
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
+  .quote-hero-media { position: static; width: 100%; height: 200px; margin-top: 24px; }
+  .quote-hero-media::before { display: none; }
+  .quote-hero-inner { padding-bottom: 30px; }
+  .quote-hero-content h1 { font-size: 2rem; }
+  .quote-hero-features { flex-direction: column; gap: 16px; }
+
+  .quote-sidebar { flex-direction: column; }
+
+  .stepper-label { display: none; }
+  .stepper::before { top: 18px; }
+
+  .form-actions { flex-direction: column-reverse; align-items: stretch; }
+  .form-actions .btn { width: 100%; justify-content: center; }
+}
+
+/* ==========================================================================
+   MOBILE TOP BAR
+   Fixed location + moving contact information
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+  .top-bar {
+    overflow: hidden;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  /* Hide when scrolling down */
+  .top-bar.scrolled-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+
+  /* --------------------------------------------------
+     Main layout
+     -------------------------------------------------- */
+
+  .top-bar-inner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 8px 0;
+    overflow: hidden;
+    gap: 15px;
+  }
+
+
+  /* --------------------------------------------------
+     FIXED LOCATION
+     -------------------------------------------------- */
+
+  .top-bar-location {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    flex-shrink: 0;
+
+    padding-left: 16px;
+    padding-right: 10px;
+
+    max-width: 52%;
+
+    color: #B7BEC4;
+    white-space: nowrap;
+
+    overflow: hidden;
+  }
+
+  .top-bar-location i {
+    color: var(--color-orange);
+    flex-shrink: 0;
+  }
+
+  .top-bar-location span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+
+  /* --------------------------------------------------
+     MOVING AREA
+     -------------------------------------------------- */
+
+  .top-bar-marquee {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .top-bar-marquee-content {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 24px;
+
+    width: max-content;
+    white-space: nowrap;
+
+    animation: gagiTopBarMarquee 28s linear infinite;
+  }
+
+
+  /* --------------------------------------------------
+     PHONE
+     -------------------------------------------------- */
+
+  .top-bar-phone {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    flex-shrink: 0;
+  }
+
+  .top-bar-phone i {
+    color: var(--color-orange);
+  }
+
+  .top-bar-email i {
+    color: var(--color-orange);
+  }
+
+
+  /* --------------------------------------------------
+     BUSINESS HOURS
+     -------------------------------------------------- */
+
+  .top-bar-hours {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    flex-shrink: 0;
+  }
+
+  .top-bar-hours i {
+    color: var(--color-orange);
+  }
+
+
+  /* --------------------------------------------------
+     SOCIAL ICONS
+     -------------------------------------------------- */
+
+  .top-bar-social {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin: 0;
+    padding: 0;
+
+    flex-shrink: 0;
+  }
+
+  .top-bar-social li {
+    flex-shrink: 0;
+  }
+
+  .top-bar-social a {
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+
+    color: var(--color-white);
+    font-size: 0.7rem;
+
+    transition:
+      background var(--transition),
+      color var(--transition);
+  }
+
+  .top-bar-social a:hover {
+    background: var(--color-orange);
+    color: var(--color-white);
+  }
+
+
+  /* --------------------------------------------------
+     MARQUEE
+     -------------------------------------------------- */
+
+  @keyframes gagiTopBarMarquee {
+
+    0% {
+      transform: translateX(100%);
+    }
+
+    100% {
+      transform: translateX(-100%);
+    }
+
+  }
+
+}
+
+/* ==========================================================================
+   MOBILE TEAM CARDS
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+  .team-card {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    aspect-ratio: auto;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  /* Image fills the entire card */
+  .team-card img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    object-fit: cover;
+    object-position: center 20%;
+  }
+
+  /* Caption overlays the bottom of the image */
+  .team-card-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 2;
+
+    padding: 45px 16px 14px;
+
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(15, 25, 32, 0.45) 35%,
+      rgba(15, 25, 32, 0.92) 75%,
+      rgba(15, 25, 32, 0.98) 100%
+    );
+  }
+
+  .team-card-caption h3 {
+    margin: 0 0 4px;
+    font-size: 1.05rem;
+  }
+
+  .team-card-caption span {
+    font-size: 0.82rem;
+  }
+
+}
+
+
+/* ==========================================================================
+   MOBILE PRODUCTS HERO
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+  .products-hero-inner {
+    padding-left: 25px;
+    padding-right: 20px;
+  }
+
+  .products-hero-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 16px;
+    width: 100%;
+    margin-top: 28px;
+  }
+
+  .products-hero-features li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .products-hero-features .hero-feature-icon {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+  }
+
+  .products-hero-features .hero-feature-icon i {
+    font-size: 1rem;
+  }
+
+}
+
+/* ==========================================================================
+   WHY US HERO — MOBILE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+  .whyus-hero-inner {
+    /* Add space between the content and the phone screen edges */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .whyus-hero-content {
+    /* Allow the content to use the padded mobile width */
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* ---------- Mobile Heading ---------- */
+
+  .whyus-hero-content h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  /* ---------- Mobile Paragraph ---------- */
+
+  .whyus-hero-content > p {
+    max-width: 100%;
+    line-height: 1.65;
+  }
+
+}
+
+
+/* ==========================================================================
+   WHY US HERO — SMALL MOBILE
+   ========================================================================== */
+
+@media (max-width: 480px) {
+
+  .whyus-hero-inner {
+    /* Slightly tighter spacing on very small screens */
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .whyus-hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+}
+
+/* ==========================================================================
+   WHY US STATS — MOBILE 2x2 GRID
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+  .whyus-stats-row {
+    /* Two equal columns */
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    /* Vertical and horizontal spacing */
+    gap: 20px 12px;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Individual stat items
+     ------------------------------------------------------------------------ */
+
+  .whyus-stats-row li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 10px;
+
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Fifth stat
+     Place it directly below the first column and keep the same alignment
+     as the stats above it.
+     ------------------------------------------------------------------------ */
+
+  .whyus-stats-row li:last-child {
+    grid-column: 1;
+    grid-row: 3;
+
+    /* Keep it aligned with the first-column items */
+    justify-self: stretch;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Stat icon
+     ------------------------------------------------------------------------ */
+
+  .whyus-stats-row .stat-icon {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Stat text
+     ------------------------------------------------------------------------ */
+
+  .whyus-stats-row li > div {
+    min-width: 0;
+  }
+
+  .whyus-stats-row strong,
+  .whyus-stats-row li > div > span {
+    display: block;
+  }
+
+}
+
+/* ==========================================================================
+   OUR PROCESS — MOBILE 2x2 GRID
+   ========================================================================== */
+
+@media (max-width: 640px) {
+
+  .process-row {
+    /* Create two equal columns */
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    /* Space between rows and columns */
+    gap: 34px 16px;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Individual process steps
+     ------------------------------------------------------------------------ */
+
+  .process-row li {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Step 05
+     Place it below Step 01 in the first column
+     ------------------------------------------------------------------------ */
+
+  .process-row li:last-child {
+    grid-column: 1;
+    grid-row: 3;
+
+    justify-self: stretch;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Process number
+     ------------------------------------------------------------------------ */
+
+  .process-row .process-number {
+    display: block;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Process icon
+     ------------------------------------------------------------------------ */
+
+  .process-row .process-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Process title
+     ------------------------------------------------------------------------ */
+
+  .process-row strong {
+    display: block;
+    line-height: 1.3;
+  }
+
+
+  /* ------------------------------------------------------------------------
+     Process description
+     ------------------------------------------------------------------------ */
+
+  .process-row p {
+    margin-bottom: 0;
+    max-width: 180px;
+    line-height: 1.5;
+  }
+
+}

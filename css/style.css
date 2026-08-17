@@ -1,0 +1,725 @@
+/* =========================================================
+   GAGI SACCO — style.css
+   Shared/global styles: resets, tokens, typography, buttons,
+   header/nav. Loaded on every page.
+========================================================= */
+
+/* ---------- Design tokens ---------- */
+:root {
+  --color-orange: #F57C00;
+  --color-orange-dark: #D96900;
+  --color-dark: #1F2A33;
+  --color-dark-2: #121A20;
+  --color-grey: #6B7378;
+  --color-grey-light: #F5F1EA;
+  --color-bg: #FDFBF7;
+  --color-white: #FFFFFF;
+  --color-border: #E6E1D8;
+
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --container-width: 1200px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+  --shadow-card: 0 6px 20px rgba(31, 42, 51, 0.08);
+  --transition: 0.25s ease;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-dark);
+  background: var(--color-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; margin: 0; padding: 0; }
+h1, h2, h3, h4 { font-family: var(--font-heading); margin: 0; line-height: 1.2; }
+p { margin: 0; }
+button { font-family: inherit; cursor: pointer; }
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 26px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  transition: transform var(--transition), background var(--transition), color var(--transition), box-shadow var(--transition);
+  border: 2px solid transparent;
+}
+.btn-primary {
+  background: var(--color-orange);
+  color: var(--color-white);
+  box-shadow: 0 6px 16px rgba(245, 124, 0, 0.3);
+}
+.btn-primary:hover {
+  background: var(--color-orange-dark);
+  transform: translateY(-2px);
+}
+.btn-outline {
+  background: transparent;
+  border-color: var(--color-dark);
+  color: var(--color-dark);
+}
+.btn-outline:hover {
+  background: var(--color-dark);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+/* Outline button on dark backgrounds needs a light border */
+.btn-outline-light {
+  background: transparent;
+  border-color: var(--color-white);
+  color: var(--color-white);
+}
+.btn-outline-light:hover {
+  background: var(--color-white);
+  color: var(--color-dark);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   GAGI SACCO — HEADER & NAVIGATION
+   Scoped only to the header
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ---------- Header Layout ---------- */
+
+.site-header .header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 78px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+/* ---------- Logo ---------- */
+
+.site-header .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.site-header .logo img {
+  display: block;
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.site-header .logo-text {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--color-dark);
+  letter-spacing: 0.5px;
+}
+
+.site-header .logo-text span {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-orange);
+  letter-spacing: 2px;
+}
+
+
+/* ==========================================================================
+   MAIN NAVIGATION
+   ========================================================================== */
+
+.site-header .main-nav {
+  margin-left: auto;
+}
+
+.site-header .main-nav > ul {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-header .main-nav li {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-header .main-nav > ul > li > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+
+  padding: 8px 2px;
+
+  color: var(--color-dark);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: color 0.2s ease;
+}
+
+.site-header .main-nav > ul > li > a:hover,
+.site-header .main-nav > ul > li > a.active {
+  color: var(--color-orange);
+}
+
+
+/* ---------- Active Page Indicator ---------- */
+
+.site-header .main-nav > ul > li > a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+
+  height: 2px;
+
+  background: var(--color-orange);
+  border-radius: 2px;
+}
+
+
+/* ==========================================================================
+   PRODUCTS DROPDOWN
+   ========================================================================== */
+
+.site-header .has-dropdown {
+  position: relative;
+}
+
+.site-header .caret {
+  display: inline-block;
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.site-header .has-dropdown:hover .caret {
+  transform: rotate(180deg);
+}
+
+
+/* Dropdown */
+
+.site-header .dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+
+  width: 220px;
+  margin: 0;
+  padding: 8px;
+
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-orange);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+
+  box-shadow: var(--shadow-card);
+
+  list-style: none;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translate(-50%, 8px);
+
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* Small invisible bridge between Products and dropdown */
+
+.site-header .dropdown::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 0;
+  width: 100%;
+  height: 14px;
+}
+
+
+/* Show dropdown */
+
+.site-header .has-dropdown:hover > .dropdown,
+.site-header .has-dropdown:focus-within > .dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+
+/* Dropdown links */
+
+.site-header .dropdown li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 10px 12px;
+
+  color: var(--color-dark);
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.3;
+  text-decoration: none;
+
+  border-radius: var(--radius-sm);
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.site-header .dropdown li a:hover {
+  color: var(--color-orange);
+  background: var(--color-grey-light);
+}
+
+
+/* View All Products */
+
+.site-header .dropdown .dropdown-all {
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px solid var(--color-border);
+}
+
+.site-header .dropdown .dropdown-all a {
+  color: var(--color-orange);
+  font-weight: 700;
+}
+
+
+/* ==========================================================================
+   HEADER CTA
+   ========================================================================== */
+
+.site-header .header-cta {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+
+/* ==========================================================================
+   MOBILE NAV TOGGLE
+   ========================================================================== */
+
+.site-header .nav-toggle {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+  padding: 0;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  cursor: pointer;
+}
+
+.site-header .nav-toggle span {
+  display: block;
+
+  width: 20px;
+  height: 2px;
+
+  background: var(--color-dark);
+  border-radius: 2px;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.site-header .nav-toggle:hover {
+  border-color: var(--color-orange);
+}
+
+.site-header .nav-toggle:hover span {
+  background: var(--color-orange);
+}
+
+
+/* Hamburger → X */
+
+.site-header .nav-toggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.site-header .nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header .nav-toggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ==========================================================================
+   TABLET
+   ========================================================================== */
+
+@media (max-width: 1050px) {
+
+  .site-header .header-inner {
+    gap: 18px;
+  }
+
+  .site-header .main-nav > ul {
+    gap: 20px;
+  }
+
+  .site-header .main-nav > ul > li > a {
+    font-size: 0.9rem;
+  }
+
+  .site-header .header-cta {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+
+/* ==========================================================================
+   MOBILE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+  .site-header .header-inner {
+    min-height: 70px;
+    gap: 12px;
+  }
+
+
+  /* Logo */
+
+  .site-header .logo img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .site-header .logo-text {
+    font-size: 1rem;
+  }
+
+  .site-header .logo-text span {
+    font-size: 0.65rem;
+  }
+
+
+  /* Hide desktop CTA */
+
+  .site-header .header-cta {
+    display: none;
+  }
+
+
+  /* Show hamburger */
+
+  .site-header .nav-toggle {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+
+  /* Mobile navigation panel */
+
+  .site-header .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+
+    margin: 0;
+
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+
+    box-shadow: 0 10px 25px rgba(48, 52, 59, 0.08);
+
+    /* Hidden until JS opens it */
+    display: none;
+  }
+
+
+  /* Your navigation JS should add this class */
+
+  .site-header .main-nav.open {
+    display: block;
+  }
+
+
+  /* Main mobile list */
+
+  .site-header .main-nav > ul {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+
+    width: 100%;
+    padding: 10px 20px 18px;
+  }
+
+
+  .site-header .main-nav > ul > li {
+    width: 100%;
+  }
+
+
+  .site-header .main-nav > ul > li > a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 13px 4px;
+
+    font-size: 0.95rem;
+
+    border-bottom: 1px solid var(--color-border);
+  }
+
+
+  /* Remove desktop active underline */
+
+  .site-header .main-nav > ul > li > a.active::after {
+    display: none;
+  }
+
+
+  /* Active mobile item */
+
+  .site-header .main-nav > ul > li > a.active {
+    color: var(--color-orange);
+  }
+
+
+  /* Products dropdown on mobile */
+
+  .site-header .dropdown {
+    position: static;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 4px 0 8px;
+
+    background: var(--color-grey-light);
+
+    border: none;
+    border-left: 2px solid var(--color-orange);
+    border-radius: 0;
+
+    box-shadow: none;
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: none;
+
+    display: none;
+  }
+
+
+  /*
+   * Allows the Products submenu to appear when the user
+   * focuses/interacts with Products.
+   */
+  .site-header .has-dropdown:hover > .dropdown,
+  .site-header .has-dropdown:focus-within > .dropdown {
+    display: block;
+  }
+
+
+  .site-header .dropdown::before {
+    display: none;
+  }
+
+
+  .site-header .dropdown li a {
+    padding: 10px 14px;
+
+    font-size: 0.87rem;
+
+    border-radius: 0;
+  }
+
+
+  .site-header .dropdown .dropdown-all {
+    margin-top: 4px;
+    padding-top: 4px;
+  }
+}
+
+
+/* ==========================================================================
+   SMALL MOBILE
+========================================================================== */
+
+@media (max-width: 480px) {
+
+  .site-header .header-inner {
+    min-height: 64px;
+  }
+
+  .site-header .logo {
+    gap: 8px;
+  }
+
+  .site-header .logo img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .site-header .logo-text {
+    font-size: 0.95rem;
+  }
+
+  .site-header .logo-text span {
+    font-size: 0.6rem;
+    letter-spacing: 1.5px;
+  }
+
+  .site-header .main-nav > ul {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+/* ---------- Shared section heading style ---------- */
+.eyebrow {
+  display: inline-block;
+  color: var(--color-orange);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.eyebrow-light { color: var(--color-orange); }
+
+.section-heading {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 50px;
+}
+.section-heading h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.section-heading p {
+  color: var(--color-grey);
+  font-size: 1.05rem;
+}
+.section-cta { text-align: center; margin-top: 40px; }
+
+/* ---------- Shared quote CTA banner (reused across pages) ---------- */
+.cta-banner {
+  background: var(--color-grey-light);
+  padding: 50px 0;
+}
+.cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+.cta-text {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+.cta-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--color-white);
+  color: var(--color-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-card);
+}
+.cta-text h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; }
+.cta-text p { color: var(--color-grey); max-width: 480px; }
+
+/* Dark variant of the CTA banner, used on About page */
+.cta-banner-dark {
+  background: var(--color-dark);
+}
+.cta-banner-dark .cta-text h2 { color: var(--color-white); }
+.cta-banner-dark .cta-text p { color: #B7BEC4; }
+.cta-banner-dark .cta-icon { background: rgba(255,255,255,0.08); color: var(--color-orange); box-shadow: none; }
+
+
