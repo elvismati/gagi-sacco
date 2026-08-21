@@ -188,3 +188,106 @@
 .top-bar-social a:hover i {
   color: #FFFFFF !important;
 }
+
+/* ==========================================================================
+   MOBILE TOP UTILITY BAR
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+  /* --------------------------------------------------
+     MAIN UTILITY BAR
+     -------------------------------------------------- */
+
+  .top-bar-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+
+    width: 100%;
+    padding: 8px 16px !important;
+
+    gap: 8px !important;
+  }
+
+
+  /* --------------------------------------------------
+     LOCATION — FULL WIDTH
+     -------------------------------------------------- */
+
+  .top-bar-location {
+    display: flex !important;
+    align-items: flex-start !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    gap: 8px !important;
+
+    flex: 0 0 auto !important;
+    flex-shrink: 1 !important;
+
+    white-space: normal !important;
+
+    overflow: visible !important;
+  }
+
+  .top-bar-location i {
+    flex: 0 0 auto !important;
+    flex-shrink: 0 !important;
+
+    margin-top: 3px;
+  }
+
+  .top-bar-location span {
+    display: block !important;
+
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+
+    flex: 1 1 auto !important;
+
+    white-space: normal !important;
+
+    overflow: visible !important;
+    text-overflow: clip !important;
+
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+
+    line-height: 1.4;
+  }
+
+
+  /* --------------------------------------------------
+     SECOND ROW — PHONE / EMAIL / HOURS
+     -------------------------------------------------- */
+
+  .top-bar-marquee {
+    display: flex !important;
+    align-items: center !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin-left: 0 !important;
+
+    flex: 0 0 auto !important;
+
+    overflow: hidden;
+  }
+
+  .top-bar-marquee-content {
+    display: flex !important;
+    align-items: center !important;
+
+    width: 100% !important;
+
+    gap: 18px !important;
+  }
+
+}
